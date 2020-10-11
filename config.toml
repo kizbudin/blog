@@ -2,7 +2,7 @@ baseurl = "https://fallcrescent.my.id"
 languageCode = "en-us"
 theme = "hello-friend"
 paginate = 5
-disqusShortname = "fallcrescent"
+disqusShortname = "ffallcrescent-blog"
 
 [params]
   # dir name of your blog content (default is `content/posts`).
