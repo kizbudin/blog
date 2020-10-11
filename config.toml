@@ -55,4 +55,8 @@ paginate = 5
         identifier = "posts"
         name = "Blog"
         url = "/posts"
+      [[languages.en.menu.main]]
+        identifier = "tentang"
+        name = "Tentang"
+        url = "/tentang/tentang"
       
