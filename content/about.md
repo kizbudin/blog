@@ -1,6 +1,11 @@
 ---
-title: "About"
-date: 2020-10-11T11:11:03+07:00
-draft: true
+title: "Tentang Saya"
+draft: false
+cover: /images/tentang/s.png
+
 ---
 
+---
+Hello i am M. Kizbudin. Computer science student, i blog about cyber security, ctf writeup , web development , and more about tech. born and raised in indonesia , currently living in indonesia
+
+---
