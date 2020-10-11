@@ -1,16 +1,22 @@
 ---
-title: "Write Up CTF Diskominfo kota serang"
+title: "Write Up Diskoctf"
 date: 2020-10-10T23:23:47+07:00
 draft: false
 author: fallcrescent
 cover: /images/diskoctf/logokominfo.png
 ---
+## Misc - Bonus
+Untuk soal kategori ini tidak perlu di jelaskan sudah ada jawabanya semua
+![bonus](/images/diskoctf/bonus.png)
+flag nya yaitu\
+Bonus 1 : **DiskoCTF{reborn_playing}**\
+Bonus 2 : **DiskoCTF{hints!}**\
+Bonus 3 : **DiskoCTF{we've_should_sorry_to_you_guys}**  
 
 ## Reverse Engineering
-pada chall kategori ini adalah kita di minta untuk membongkar program
 ### Expr or Call
 Berikut adalah challengenya
-![Expr or call](/images/diskoctf/expr-chall-desc.png)
+
 >Adakah jalan (commands) menuju bendera diantara alat dynamic debuggers ?  P.S: Akan sangat disayangkan bila soal ini di-solve menggunakan Decompiler , such waste time :)
 
 buka menggunakan gdb lalu pasang breakpoint pada fungsi main
@@ -23,13 +29,6 @@ jalankan kembali programnya dengan menggunkaan perintah r pada gdb, selanjutnya 
 
 **Flag: DiskoCTF{when_there's_symbols_why_should_disassemble_it?}**
 
-## Misc - Bonus
-Untuk soal kategori ini tidak perlu di jelaskan sudah ada jawabanya semua
-![bonus](/images/diskoctf/bonus.png)
-flag nya yaitu\
-Bonus 1 : **DiskoCTF{reborn_playing}**\
-Bonus 2 : **DiskoCTF{hints!}**\
-Bonus 3 : **DiskoCTF{we've_should_sorry_to_you_guys}**  
 
 ## OSINT
 Kali ini challenge nya tentang OSINT (Opensource Intelligence) itu arti nya skill Intelligence Gathering kita bakalan dipraktikkan disini.
@@ -46,8 +45,7 @@ pertama kita menggunakan tools [sherlock](https://github.com/sherlock-project/sh
 kita di beri gambar sebagai berikut:  
 ![oseen](/images/diskoctf/340.png)\
 kita periksa meta datanya dengan menggunakan exiftool dan di dapatkan informasi sebagai berikut
-
-```bash
+```
 [fallcrescent@ccug Downloads]$ exiftool 340.png 
 ExifTool Version Number         : 12.00
 File Name                       : 340.png
