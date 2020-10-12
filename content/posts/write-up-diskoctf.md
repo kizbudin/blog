@@ -20,12 +20,17 @@ Berikut adalah challengenya
 >Adakah jalan (commands) menuju bendera diantara alat dynamic debuggers ?  P.S: Akan sangat disayangkan bila soal ini di-solve menggunakan Decompiler , such waste time :)
 
 buka menggunakan gdb lalu pasang breakpoint pada fungsi main
-```
+```bash
 gdb -q main
 break main
 ```
 jalankan kembali programnya dengan menggunkaan perintah r pada gdb, selanjutnya masukan perintah jump pada fungsi flag, dan di dapatkan flagnya
-![flag-expr](/images/diskoctf/flag-expr.png)
+```bash
+gdb-peda$ jump flag
+Continuing at 0x555555555154.
+DiskoCTF{when_there's_symbols_why_should_disassemble_it?}
+[Inferior 1 (process 9099) exited normally]
+```
 
 **Flag: DiskoCTF{when_there's_symbols_why_should_disassemble_it?}**
 
@@ -36,7 +41,20 @@ Kali ini challenge nya tentang OSINT (Opensource Intelligence) itu arti nya skil
 >Ada rahasia dibalik username diskominfokotaserang
 
 pertama kita menggunakan tools [sherlock](https://github.com/sherlock-project/sherlock) untuk mencari tau kumpulan akun sosial media dengan menggunakan tools itu dan di dapatkan hasil sebagai berikut
-![sherlock](/images/diskoctf/rahasia-username-sherlock.png)  ada sesuatu yang menarik pada postingan instagram diskominfokotaserang yaitu ![instagram](/images/diskoctf/rahasia-username.png)  setelah di download buka dengan menggunakan stegsolve dan menggeser beberapa bit mendapat penampakan flagnya
+```bash
+[fallcrescent@ccug ~]$ sherlock diskominfokotaserang
+[*] Checking username diskominfokotaserang on:
+[+] Academia.edu: https://independent.academia.edu/diskominfokotaserang
+[+] Blogger: https://diskominfokotaserang.blogspot.com
+[+] CashMe: https://cash.me/$diskominfokotaserang
+[+] Disqus: https://disqus.com/diskominfokotaserang
+[+] GitHub: https://www.github.com/diskominfokotaserang
+[+] Instagram: https://www.instagram.com/diskominfokotaserang
+[+] Photobucket: https://photobucket.com/user/diskominfokotaserang/library
+[+] Pinterest: https://www.pinterest.com/diskominfokotaserang/
+[+] allmylinks: https://allmylinks.com/diskominfokotaserang
+```
+ ada sesuatu yang menarik pada postingan instagram diskominfokotaserang yaitu ![instagram](/images/diskoctf/rahasia-username.png)  setelah di download buka dengan menggunakan stegsolve dan menggeser beberapa bit mendapat penampakan flagnya
 ![flag rahasia username](/images/diskoctf/flag-rahasia-username.png)  
 **Flag: DiskoCTF{coloring_osint}**\
 ### OSEEN
@@ -45,7 +63,7 @@ pertama kita menggunakan tools [sherlock](https://github.com/sherlock-project/sh
 kita di beri gambar sebagai berikut:  
 ![oseen](/images/diskoctf/340.png)\
 kita periksa meta datanya dengan menggunakan exiftool dan di dapatkan informasi sebagai berikut
-```
+```bash
 [fallcrescent@ccug Downloads]$ exiftool 340.png 
 ExifTool Version Number         : 12.00
 File Name                       : 340.png
