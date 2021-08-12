@@ -1,59 +1,166 @@
-baseurl = "https://fallcrescent.my.id"
-languageCode = "en-us"
-theme = "hello-friend"
-paginate = 5
-disqusShortname = "fallcrescent-blog"
+######################## default configuration ####################
+baseURL = "https://fallcrescent.my.id"
+title = "Fallcrescent - Blog"
+theme = "bookworm"
+# post pagination
+paginate = "5"
+# post excerpt
+summaryLength = "20"
+# google analytics
+googleAnalytics = "" # example : UA-123-45
+# disqus short name
+disqusShortname = "fallcrescent-blog" # get your shortname form here : https://disqus.com
 
+############################# Modules ##############################
+[module.hugoVersion]
+extended = true
+min = "0.80.0"
+
+############################# Outputs ##############################
+[outputs]
+home = ["HTML", "RSS", "JSON"]
+
+[markup.goldmark.renderer]
+unsafe= true
+
+
+############################## Plugins ##############################
+# CSS Plugins
+[[params.plugins.css]]
+link = "plugins/bootstrap/bootstrap.min.css"
+[[params.plugins.css]]
+link = "plugins/line-awesome/css/line-awesome.min.css"
+[[params.plugins.css]]
+link = "https://fonts.googleapis.com/css2?family=Mulish:wght@500;600;700;800;900&display=swap"
+
+# JS Plugins
+[[params.plugins.js]]
+link = "plugins/jquery/jquery.min.js"
+[[params.plugins.js]]
+link = "plugins/bootstrap/bootstrap.min.js"
+[[params.plugins.js]]
+link = "plugins/instagram-feed/instagram-feed.js"
+[[params.plugins.js]]
+link = "plugins/search/fuse.min.js"
+[[params.plugins.js]]
+link = "plugins/search/mark.js"
+[[params.plugins.js]]
+link = "plugins/search/search.js"
+
+# site variables
+[params.variables]
+font_primary = "Mulish"
+h1 = "64px"
+h1_lg = "52px"
+h1_md = "42px"
+h2 = "38px"
+h2_md = "30px"
+h3 = "30px"
+h3_md = "24px"
+h4 = "24px"
+h5 = "18px"
+h6 = "16px"
+white = "#ffffff"
+black = "#000000"
+dark = "#152035"
+gray = "#747577"
+light = "#FAFAFA"
+color_primary = "#01AD9F"
+
+#################### default parameters ################################
 [params]
-  # dir name of your blog content (default is `content/posts`).
-  # the list of set content will show up on your index page (baseurl).
-  contentTypeName = "posts"
+logo = "images/FallCrescent.png"
+logo_height = "35px"
+favicon = "images/favicon.png"
+# Meta data
+description = "This is meta description"
+author = "Themefisher"
+# contact form action
+contact_form_action = "#" # contact form works with https://formspree.io
+# search
+search = true
+# main section
+mainSections = ["blog"]
 
-  # "light" or "dark"
-  defaultTheme = "dark"
+# copyright
+copyright = "Designed By [Gethugothemes](https://gethugothemes.com/) & Developed by [M. Kizbudin](https://fallcrescent.my.id)"
 
-  # if you set this to 0, only submenu trigger will be visible
-  showMenuItems = 3
+# Preloader
+[params.preloader]
+enable = false
+preloader = "" # use jpg, png, svg or gif format.
 
-  # Show reading time in minutes for posts
-  showReadingTime = true
+# cookies
+[params.cookies]
+enable = false
+expire_days = 2
 
-  # Show table of contents at the top of your posts (defaults to false)
-  # Alternatively, add this param to post front matter for specific posts
-  # toc = true
 
-  # Show full page content in RSS feed items
-  #(default is Description or Summary metadata in the front matter)
-  # rssFullText = true
+############################# Main Menu ########################
+[[menu.main]]
+weight = 1
+url = "/"
+name = "Home"
+  
+[[menu.main]]
+weight = 3
+url = "about"
+name = "About"
+  
+[[menu.main]]
+weight = 4
+url = "contact"
+name = "Contact me"
 
-[languages]
-  [languages.en]
-    title = "FallCrescent Blog"
-    subtitle = ""
-    keywords = ""
-    copyright = "© 2020 Made with ❤️ by fallcrescent | Powered by Hugo"
-    menuMore = "Show more"
-    writtenBy = "Written by"
-    readMore = "Read more"
-    readOtherPosts = "Read other posts"
-    newerPosts = "Newer posts"
-    olderPosts = "Older posts"
-    minuteReadingTime = "min read"
-    dateFormatSingle = "2006-01-02"
-    dateFormatList = "2006-01-02"
-    # leave empty to disable, enter display text to enable
-    # lastModDisplay = "Modified:"
+[[menu.main]]
+weight = 5
+url = "#"
+name = "Pages"
+hasChildren = true
 
-    [languages.en.params.logo]
-      logoText = "$ cd /home/"
-      logoHomeLink = "/"
-    # or
-    #
-    # path = "/img/your-example-logo.svg"
-    # alt = "Your example logo alt text"
+  [[menu.main]]
+  parent = "Pages"
+  weight = 1
+  url = "author/"
+  name = "Author"
+  
+  [[menu.main]]
+  parent = "Pages"
+  weight = 2
+  url = "tags/"
+  name = "Tags"
+  
+  [[menu.main]]
+  parent = "Pages"
+  weight = 3
+  url = "categories/"
+  name = "Category"
+  
+ 
+############################# Footer Menu ########################
+[[menu.footer]]
+weight = 1
+url = "about/"
+name = "About"
 
-      [[languages.en.menu.main]]
-        identifier = "tentang"
-        name = "Tentang"
-        url = "/about"
-      
+[[menu.footer]]
+weight = 2
+url = "author/"
+name = "Authors"
+
+# Social Icons
+[[params.social]]
+url = "https://www.facebook.com/m.kizbudin1"
+icon = "lab la-facebook-f" # https://icons8.com/line-awesome
+
+[[params.social]]
+url = "https://www.twitter.com/fallcrescent151"
+icon = "lab la-twitter" # https://icons8.com/line-awesome
+
+[[params.social]]
+url = "https://www.instagram.com/"
+icon = "lab la-instagram" # https://icons8.com/line-awesome
+
+[[params.social]]
+url = "https://www.linkedin.com/"
+icon = "lab la-linkedin-in" # https://icons8.com/line-awesome
