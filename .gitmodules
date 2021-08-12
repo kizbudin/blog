@@ -2,6 +2,4 @@
 	path = public
 	url = https://github.com/kizbudin/kizbudin.github.io.git
 	branch = main
-[submodule "kizbudin.github.io"]
-	path = kizbudin.github.io
-	url = https://github.com/kizbudin/kizbudin.github.io.git
+    
