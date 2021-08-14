@@ -9,7 +9,7 @@ summaryLength = "20"
 # google analytics
 googleAnalytics = "" # example : UA-123-45
 # disqus short name
-disqusShortname = "fallcrescent-blog" # get your shortname form here : https://disqus.com
+disqusShortname = "fallcrescent-blog"
 
 ############################# Modules ##############################
 [module.hugoVersion]
@@ -73,10 +73,11 @@ logo = "images/FallCrescent.png"
 logo_height = "35px"
 favicon = "images/favicon.png"
 # Meta data
-description = "This is meta description"
-author = "Themefisher"
+description = "Welcome to my blog"
+author = "FallCrescent"
 # contact form action
-contact_form_action = "#" # contact form works with https://formspree.io
+#contact form works with https://formspree.io
+contact_form_action = "https://formspree.io/f/xwkawkwr" 
 # search
 search = true
 # main section

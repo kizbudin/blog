@@ -28,7 +28,7 @@ social:
 # what_i_do
 what_i_do:
   title: "What I Do"
-  enable: true
+  enable: false
   item:
   - title: "Web Developing"
     icon: "las la-code"
