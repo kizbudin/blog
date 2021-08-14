@@ -38,6 +38,27 @@
     </item>
     
     <item>
+      <title>Write up HackFest 0x02</title>
+      <link>https://fallcrescent.my.id/blog/wu-hf0x02/</link>
+      <pubDate>Sun, 27 Jan 2019 21:22:22 +0700</pubDate>
+      
+      <guid>https://fallcrescent.my.id/blog/wu-hf0x02/</guid>
+      <description>Cryptography One Byte XOR diberikan file ZIP berisi source code python encryptor dan hasil enkripsinya berikut adalah scriptnya
+from Crypto import Random import base64 def main(): flag = open(&amp;#34;flag.</description>
+    </item>
+    
+    <item>
+      <title>Writeup HackFest 2017</title>
+      <link>https://fallcrescent.my.id/blog/writeup-hf-2017/</link>
+      <pubDate>Thu, 11 Oct 2018 18:56:24 +0700</pubDate>
+      
+      <guid>https://fallcrescent.my.id/blog/writeup-hf-2017/</guid>
+      <description>Web Hacking 1. MR Robot Deskripsi Soal : Catch My Robot
+Diberikan tampilan awal sebagai berikut
+Dari soal kita sudah bisa mengetahui kalau pada website ini mempunyai file robots.</description>
+    </item>
+    
+    <item>
       <title>Search Result</title>
       <link>https://fallcrescent.my.id/search/</link>
       <pubDate>Mon, 24 Sep 2018 11:07:10 +0600</pubDate>
