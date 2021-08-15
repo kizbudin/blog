@@ -2,7 +2,4 @@
 	path = public
 	url = https://github.com/kizbudin/kizbudin.github.io.git
 	branch = main
-    
-[submodule "themes/bookworm"]
-	path = themes/bookworm
-	url = https://github.com/gethugothemes/bookworm.git
+
