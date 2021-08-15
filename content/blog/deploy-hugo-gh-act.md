@@ -3,7 +3,7 @@ title: "Deploy Hugo ke Github dengan Menggunakan Github Action"
 image: "images/post/hugo+gh.png"
 author : "kizbudin"
 tags: ["Hugo","github action"]
-categories: ["Web Dev"]
+categories: ["CI/CD"]
 date: 2021-08-14T22:26:56+07:00
 draft: false
 ---
