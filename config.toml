@@ -1,5 +1,5 @@
 ######################## default configuration ####################
-baseURL = "https://fallcrescent.my.id"
+baseURL = "https://fallcrescent151.my.id"
 title = "Fallcrescent - Blog"
 theme = "bookworm"
 # post pagination
