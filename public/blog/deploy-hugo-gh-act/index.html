@@ -2,7 +2,7 @@
 <html lang="en-US">
 <head>
   <meta charset="utf-8">
-  <title>Write up Reduce CTF</title>
+  <title>Deploy Hugo ke Github dengan Menggunakan Github Action</title>
 
   <meta name="author" content="FallCrescent">
   <meta name="description" content="  Welcome to my blog  ">
@@ -148,7 +148,7 @@
     <div class="row justify-content-center">
       <div class="col-lg-10">
         <div class="text-center mb-5">
-          <h3 class="h2 mb-4 post-title">Write up Reduce CTF</h3>
+          <h3 class="h2 mb-4 post-title">Deploy Hugo ke Github dengan Menggunakan Github Action</h3>
           <ul class="card-meta list-inline">
             <li class="list-inline-item">
               <a href="#!" class="card-meta-author">
@@ -162,43 +162,85 @@
             </li>
             <li class="list-inline-item">|</li>
             <li class="list-inline-item">
-              <span>12 August 2021</span>
+              <span>14 August 2021</span>
             </li>
           </ul>
         </div>
 
         
         <div class="mb-5 text-center">
-          <img loading="lazy" class="img-fluid rounded" src="https://fallcrescent151.my.id/images/post/reduce-ctf/reduce-logo.png" alt="Image not Found">
+          <img loading="lazy" class="img-fluid rounded" src="https://fallcrescent151.my.id/images/post/hugo&#43;gh.png" alt="Image not Found">
         </div>
         
 
         <div class="content">
-          <h2 id="hexer">Hexer</h2>
-<p>diberikan clue sebagai berikut</p>
-<blockquote>
-<p>Hi I&rsquo;m hexer and i will hex you<br>
-49 6d 20 68 65 78 65 72</p>
-</blockquote>
-<p>seperti pada judul soal ini merupakan bilangan hexadesimal, bisa langsung decode dengan menggunakan Python dan di dapatkan flag:<br>
-<img src="/images/post/reduce-ctf/hexer/flag.png" alt="flag_Hexer"><br>
-<strong>Flag : REDUCE{Im hexerS}</strong></p>
-<h2 id="kode-standar-amerika">kode standar amerika</h2>
-<p>diberikan kode sebagai berikut</p>
-<blockquote>
-<p>65 109 101 114 105 99 97 110 32 83 116 97 110 100 97 114 100 32 67 111 100 101 32 102 111 114 32 73 110 102 111 114 109 97 116 105 111 110 32 73 110 116 101 114 99 104 97 110 103 101</p>
-</blockquote>
-<p>selanjutnya kita bisa langsung mengkonversikan kode ascii tersebut ke dalam bentuk plain text dengan menggunakan tools online
-<img src="/images/post/reduce-ctf/ascii.png" alt="ascii">
-<strong>Flag : REDUCE{American Standard Code for Information Interchange}</strong></p>
-<h2 id="spam-banget">Spam Banget</h2>
-<blockquote>
-<p>w dapet pesan nih dari sang heker, namanya cesar chip8. Katanya sih ada flagnya di dalem situ
-<a href="https://pastebin.com/MzA4daX5">sini</a></p>
-</blockquote>
-<p>setelah di buka ternyata itu adalah string yang sudah di enkripsi menggunakan caesar cipher, untuk itu saya menggunakan bantuan <a href="https://cryptii.com/pipes/caesar-cipher">website ini</a> untuk melakukan decode, setelah di decode ternyata kita mendapatkan pesan spam yang tidak ada artinya, tapi tenang saja dengan menggunakan <a href="https://www.spammimic.com/decode.shtml">tools ini</a> di dapatkan flag.<br>
-<strong>Flag: REDUCE{Fl4g_1s_Fl46}</strong></p>
-<p>to be continued..</p>
+          <h2 id="apa-itu-github-action">Apa itu Github Action?</h2>
+<p>Sederhananya Github Actions adalah alat otomasi (CI/CD) yang hadir di Github, Alat ini sangat membantu kita untuk membuat berbagai keperluan otomasi seperti unit test auto deploy . Dan tidak hanya itu, dengan Github Actions kita juga bisa menentukan saat saat apa saja otomasi akan terpanggil.</p>
+<h2 id="langkah-untuk-deploy-hugo-website-dengan-menggunakan-github-action">Langkah untuk Deploy Hugo Website dengan menggunakan Github Action</h2>
+<h3 id="step-1-buat-repository-dengan-nama-usernamegithubio">Step 1: Buat repository dengan nama <code>&lt;username&gt;.github.io</code></h3>
+<p>kita perlu membuat sebuah repository dengan nama <username>.github.io. repository ini selanjutnya akan digunakan agar bisa di akses dengan menggunakan url dengan nama url yang sama dengan nama repository nya.</p>
+<h3 id="step-2-install-dan-buat-hugo-website">Step 2: Install dan buat Hugo Website</h3>
+<p>Kita perlu install hugo pada sistem operasi yang sedang digunakan agar bisa membuat website hugo. silahkan lihat <a href="https://gohugo.io/getting-started/quick-start/">dokumentasi berikut</a> untuk melakukan installasi dan panduan dasar dalam pembuatan website hugo.</p>
+<h3 id="step-3-push-website-hugo-ke-dalam-repository-github">Step 3: Push Website Hugo ke dalam repository Github</h3>
+<p>Selanjutnya, buat lagi repository yang digunakan untuk menyimpan source code berisikan website Hugo lalu push source code yang sudah ada ke dalam branch main. push source code dengan menggunakan perintah berikut\</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git init
+</span></span><span style="display:flex;"><span>git remote add origin git@github.com:&lt;username&gt;/&lt;repo-name&gt;
+</span></span><span style="display:flex;"><span>git add --all
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#34;Pesan Commit&#34;</span>
+</span></span><span style="display:flex;"><span>git push origin master
+</span></span></code></pre></div><p>jika sudah menambahkan tema pada website hugo, tambahkan folder tema tersebut pada git submodule. ikuti perintah berikut</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git submodule add &lt;remote URL&gt; themes/&lt;nama tema&gt;
+</span></span></code></pre></div><p>sebelum melakukan push terhadap repository, lebih baik update submode untuk mendapatkan tema terbaru dari creator tema tersebut. ikuti perintah berikut\</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git submodule update --init --recursive
+</span></span><span style="display:flex;"><span>git push origin master
+</span></span></code></pre></div><p>atau nanti kita bisa melakukan update tema terbaru dengan menggunakan perintah pada github action.</p>
+<h3 id="step-4-buat-github-token">Step 4: Buat Github Token</h3>
+<p>Selanjutnya kita perlu membuat token yang dapat mengakses repsository yang telah ada dengan menggunakan <a href="https://github.com/settings/tokens/new">Halaman Github Token berikut</a>. kita akan mendapatkan sebuah character random berisikan token yang sudah di generate oleh sistem. copy dan simpan terlebih dahulu token yang sudah di dapat
+<img src="/images/post/hugogh/buat-token.jpg" alt="Github token"></p>
+<h3 id="step-5-tambahkan-token-sebagai-secret-pada-github-repo">Step 5: Tambahkan token sebagai secret pada github repo</h3>
+<p>Selanjutnya, kita bisa menambahkan pada Secret dalam setting pada repo, secret dapat di akses pada <code>https://github.com/&lt;username&gt;/&lt;repo-name&gt;/settings/secrets</code> seperti berikut
+<img src="/images/post/hugogh/tambah-token.jpg" alt="tambah token">\</p>
+<h3 id="step-6-buat-github-action">Step 6: Buat Github action</h3>
+<p>Setelah itu, buat sebuah action pada direktori .github/workflows/ direktori tersebut berada dalam repository tempat source code hugo tersimpan, namakan file tersebut dengan nama main.yml. lalu isikan dengan kode berikut</p>
+<pre tabindex="0"><code>name: CI
+on: push
+jobs:
+  deploy:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Git checkout
+        uses: actions/checkout@v2
+
+      - name: Update theme
+        # ini adalah opsional, jika kita menggunakan tema sebagai submodule, perintah ini akan melakukan update tema ke versi paling terbaru yang di release oleh developer tema tersebut
+        run: git submodule update --init --recursive
+
+      - name: Setup hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: &#34;0.64.0&#34;
+
+      - name: Build
+        # Hapus parameter --minify jika kalian tidak membutuhkan minify
+        # dokumentasi minify dapat dilihat pada: https://gohugo.io/hugo-pipes/minification/
+        run: hugo --minify
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          personal_token: ${{ secrets.TOKEN }}
+          external_repository: &lt;username&gt;/&lt;username&gt;.github.io
+          publish_dir: ./public
+          #   keep_files: true
+          user_name: &lt;username&gt;
+          user_email: &lt;username@email.com&gt;
+          publish_branch: master
+</code></pre><p>Seperti yang sudah di tuliskan pada kode diatas perintah-perintah yang ada diatas akan otomatis di eksekusi dengan menggunakan VPS berbasis ubuntu-18.04 untuk menjalankan pipeline.</p>
+<h3 id="step-7-push-ke-dalam-github-repo">Step 7: Push ke dalam github repo</h3>
+<p>Setelah selesai kita hanya perlu melakukan push pada repository github dan semuanya akan tereksekusi, untuk prosesnya dapat di akses pada tab action
+<img src="/images/post/hugogh/act.jpg" alt="action"></p>
+<h3 id="kesimpulan">Kesimpulan</h3>
+<p>Kita dapat melakukan update pada website hugo yang sudah di hosting sebelumnya dengan menggunakan github pages, sekarang kita dapat mempublikasikan tulisan yang sudah di tulis tanpa perlu ribet melakukan push ke dalam 2 repository yang di gunakan untuk menyimpan dan hosting hugo website. berkat dengan github action ini publikasi tulisan dengan menggunakan hugo lebih mudah.</p>
 
         </div>
       </div>
@@ -209,7 +251,9 @@
         <div class="col-lg-5 col-md-6 text-center text-md-left">
           <ul class="post-meta-tags list-unstyled list-inline">
             
-            <li class="list-inline-item"><a href="https://fallcrescent151.my.id/tags/ctf">CTF</a></li>
+            <li class="list-inline-item"><a href="https://fallcrescent151.my.id/tags/hugo">Hugo</a></li>
+            
+            <li class="list-inline-item"><a href="https://fallcrescent151.my.id/tags/github-action">Github Action</a></li>
             
           </ul>
         </div>
@@ -217,7 +261,7 @@
 <ul class="social-links has-bg-color list-unstyled list-inline" style="line-height:0">
   <li class="list-inline-item">
     
-    <a class="resp-sharing-button__link d-block" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2ffallcrescent151.my.id%2fblog%2fwrite-up-reduce-ctf%2f" target="_blank"
+    <a class="resp-sharing-button__link d-block" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2ffallcrescent151.my.id%2fblog%2fdeploy-hugo-gh-act%2f" target="_blank"
       rel="noopener" aria-label="">
       <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--small">
         <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
@@ -229,7 +273,7 @@
 
   <li class="list-inline-item">
     
-    <a class="resp-sharing-button__link d-block" href="https://twitter.com/intent/tweet/?text=Write%20up%20Reduce%20CTF&amp;url=https%3a%2f%2ffallcrescent151.my.id%2fblog%2fwrite-up-reduce-ctf%2f"
+    <a class="resp-sharing-button__link d-block" href="https://twitter.com/intent/tweet/?text=Deploy%20Hugo%20ke%20Github%20dengan%20Menggunakan%20Github%20Action&amp;url=https%3a%2f%2ffallcrescent151.my.id%2fblog%2fdeploy-hugo-gh-act%2f"
       target="_blank" rel="noopener" aria-label="">
       <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small">
         <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
@@ -241,7 +285,7 @@
 
   <li class="list-inline-item">
     
-    <a class="resp-sharing-button__link d-block" href="https://plus.google.com/share?url=https%3a%2f%2ffallcrescent151.my.id%2fblog%2fwrite-up-reduce-ctf%2f" target="_blank"
+    <a class="resp-sharing-button__link d-block" href="https://plus.google.com/share?url=https%3a%2f%2ffallcrescent151.my.id%2fblog%2fdeploy-hugo-gh-act%2f" target="_blank"
       rel="noopener" aria-label="">
       <div class="resp-sharing-button resp-sharing-button--google resp-sharing-button--small">
         <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
@@ -253,7 +297,7 @@
 
   <li class="list-inline-item">
     
-    <a class="resp-sharing-button__link d-block" href="mailto:?subject=Write%20up%20Reduce%20CTF&amp;body=https%3a%2f%2ffallcrescent151.my.id%2fblog%2fwrite-up-reduce-ctf%2f" target="_self"
+    <a class="resp-sharing-button__link d-block" href="mailto:?subject=Deploy%20Hugo%20ke%20Github%20dengan%20Menggunakan%20Github%20Action&amp;body=https%3a%2f%2ffallcrescent151.my.id%2fblog%2fdeploy-hugo-gh-act%2f" target="_self"
       rel="noopener" aria-label="">
       <div class="resp-sharing-button resp-sharing-button--email resp-sharing-button--small">
         <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
@@ -265,7 +309,7 @@
 
   <li class="list-inline-item">
     
-    <a class="resp-sharing-button__link d-block" href="whatsapp://send?text=Write%20up%20Reduce%20CTF%20https%3a%2f%2ffallcrescent151.my.id%2fblog%2fwrite-up-reduce-ctf%2f" target="_blank"
+    <a class="resp-sharing-button__link d-block" href="whatsapp://send?text=Deploy%20Hugo%20ke%20Github%20dengan%20Menggunakan%20Github%20Action%20https%3a%2f%2ffallcrescent151.my.id%2fblog%2fdeploy-hugo-gh-act%2f" target="_blank"
       rel="noopener" aria-label="">
       <div class="resp-sharing-button resp-sharing-button--whatsapp resp-sharing-button--small">
         <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
@@ -365,8 +409,8 @@ Bonus 2 : …</p>
             <div class="col-md-6">
               <article class="card post-card">
   
-  <a href="https://fallcrescent151.my.id/blog/wu-hf0x02/">
-    <img loading="lazy" class="w-100 rounded" src="https://fallcrescent151.my.id/images/post/hf-ccug.png" alt="Write up HackFest 0x02">
+  <a href="https://fallcrescent151.my.id/blog/write-up-reduce-ctf/">
+    <img loading="lazy" class="w-100 rounded" src="https://fallcrescent151.my.id/images/post/reduce-ctf/reduce-logo.png" alt="Write up Reduce CTF">
   </a>
   
   <div class="card-body">
@@ -382,7 +426,7 @@ Bonus 2 : …</p>
         
       </li>
       <li class="list-inline-item mb-2">
-        <span>27 Jan, 2019</span>
+        <span>12 Aug, 2021</span>
       </li>
       <li class="list-inline-item mb-2">
         <ul class="card-meta-tag list-inline">
@@ -393,10 +437,12 @@ Bonus 2 : …</p>
       </li>
     </ul>
     <h3 class="mb-3">
-      <a class="post-title" href="https://fallcrescent151.my.id/blog/wu-hf0x02/">Write up HackFest 0x02</a>
+      <a class="post-title" href="https://fallcrescent151.my.id/blog/write-up-reduce-ctf/">Write up Reduce CTF</a>
     </h3>
-    <p>Cryptography One Byte XOR diberikan file ZIP berisi source code python encryptor dan hasil enkripsinya berikut adalah scriptnya
-from Crypto import …</p>
+    <p>Hexer diberikan clue sebagai berikut
+Hi I&amp;rsquo;m hexer and i will hex you
+49 6d 20 68 65 78 65 72
+seperti pada judul soal ini merupakan bilangan …</p>
 
     
   </div>
